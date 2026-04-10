@@ -404,7 +404,9 @@ function buildFetch(
         `[API REQUEST] ${new URL(url).pathname}${id ? ` ${CLIENT_REQUEST_ID_HEADER}=${id}` : ''} source=${source ?? 'unknown'}`,
       )
 
+      // Only inject CCH for first-party Anthropic API (not third-party compatible endpoints)
       if (
+        isFirstPartyAnthropicBaseUrl() &&
         url.includes('/v1/messages') &&
         headers.has('anthropic-version') &&
         typeof body === 'string' &&

@@ -123,14 +123,14 @@ build_binary() {
   info "Building free-code (all experimental features enabled)..."
   cd "$INSTALL_DIR"
   bun run build:dev:full
-  ok "Binary built: $INSTALL_DIR/cli-dev"
+  ok "Binary built: $INSTALL_DIR/bin/cli-dev"
 }
 
 link_binary() {
   local link_dir="$HOME/.local/bin"
   mkdir -p "$link_dir"
 
-  ln -sf "$INSTALL_DIR/cli-dev" "$link_dir/free-code"
+  ln -sf "$INSTALL_DIR/bin/cli-dev" "$link_dir/free-code"
   ok "Symlinked: $link_dir/free-code"
 
   if ! echo "$PATH" | tr ':' '\n' | grep -qx "$link_dir"; then
@@ -167,13 +167,14 @@ printf "  ${BOLD}Run it:${RESET}\n"
 printf "    ${CYAN}free-code${RESET}                          # interactive REPL\n"
 printf "    ${CYAN}free-code -p \"your prompt\"${RESET}          # one-shot mode\n"
 echo ""
-printf "  ${BOLD}Set your API key:${RESET}\n"
-printf "    ${CYAN}export ANTHROPIC_API_KEY=\"sk-ant-...\"${RESET}\n"
+printf "  ${BOLD}Set your API key (or copy .env.example to .env):${RESET}\n"
+printf "    ${CYAN}export ANTHROPIC_AUTH_TOKEN=\"sk-...\"${RESET}\n"
+printf "    ${CYAN}export ANTHROPIC_BASE_URL=\"https://api.minimaxi.com/anthropic\"${RESET}\n"
 echo ""
 printf "  ${BOLD}Or log in with Claude.ai:${RESET}\n"
 printf "    ${CYAN}free-code /login${RESET}\n"
 echo ""
 printf "  ${DIM}Source: $INSTALL_DIR${RESET}\n"
-printf "  ${DIM}Binary: $INSTALL_DIR/cli-dev${RESET}\n"
+printf "  ${DIM}Binary: $INSTALL_DIR/bin/cli-dev${RESET}\n"
 printf "  ${DIM}Link:   ~/.local/bin/free-code${RESET}\n"
 echo ""

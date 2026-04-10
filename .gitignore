@@ -1,7 +1,5 @@
 node_modules/
 dist/
-cli
-cli-dev
+bin/
 openclaw/
 .env
-.env.example

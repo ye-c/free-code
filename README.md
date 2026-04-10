@@ -178,17 +178,16 @@ curl -fsSL https://bun.sh/install | bash
 git clone https://github.com/paoloanzn/free-code.git
 cd free-code
 bun build
-./cli
+./bin/cli
 ```
 
 ### Build Variants
 
 | Command | Output | Features | Description |
 |---|---|---|---|
-| `bun run build` | `./cli` | `VOICE_MODE` only | Production-like binary |
-| `bun run build:dev` | `./cli-dev` | `VOICE_MODE` only | Dev version stamp |
-| `bun run build:dev:full` | `./cli-dev` | All 54 experimental flags | Full unlock build |
-| `bun run compile` | `./dist/cli` | `VOICE_MODE` only | Alternative output path |
+| `bun run build` | `./bin/cli` | `VOICE_MODE` only | Production-like binary |
+| `bun run build:dev` | `./bin/cli-dev` | `VOICE_MODE` only | Dev version stamp |
+| `bun run build:dev:full` | `./bin/cli-dev` | All 54 experimental flags | Full unlock build |
 
 ### Custom Feature Flags
 
@@ -208,19 +207,19 @@ bun run ./scripts/build.ts --dev --feature=BRIDGE_MODE
 
 ```bash
 # Interactive REPL (default)
-./cli
+./bin/cli
 
 # One-shot mode
-./cli -p "what files are in this directory?"
+./bin/cli -p "what files are in this directory?"
 
 # Specify a model
-./cli --model claude-opus-4-6
+./bin/cli --model claude-opus-4-6
 
 # Run from source (slower startup)
 bun run dev
 
 # OAuth login
-./cli /login
+./bin/cli /login
 ```
 
 ### Environment Variables Reference
