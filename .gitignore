@@ -2,5 +2,6 @@ node_modules/
 dist/
 bin/
 openclaw/
-.env
 .DS_Store
+.env
+.claude
