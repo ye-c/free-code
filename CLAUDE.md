@@ -15,6 +15,7 @@ bun run build
 bun run build:dev
 
 # Dev build with all experimental features (./bin/cli-dev)
+# Preferred default — always use this for development
 bun run build:dev:full
 
 # Run from source without compiling
